@@ -8,7 +8,6 @@ int main(){
 	int mi = INT_MAX;
 	int mx = INT_MIN;
 	int sum = 0;
-
 	int n,no;
 	cin>>n;
 
