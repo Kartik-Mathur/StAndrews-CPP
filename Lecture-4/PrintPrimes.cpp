@@ -16,7 +16,7 @@ int main(){
 				break;
 			}
 		}
-		// if we exit the loop naturally, condn fail
+		// if we exit the loop naturally i.e. condn fail, means prime number
 		if( j == i){
 			cout<<i<<' ';
 		}
