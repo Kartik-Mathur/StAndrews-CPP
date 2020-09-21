@@ -19,7 +19,7 @@ int main(){
 	// cout<<a<<endl; // ?
 
 
-	ch = (char)98;
+	ch = 98;
 	cout<<ch; // ?
 
 
