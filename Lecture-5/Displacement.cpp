@@ -64,7 +64,7 @@ int main(){
 			cout<<'E';
 		}
 		for(int i = 1;i<=y;i++){
-			cout<<'S';
+			cout<<'SD';
 		}		
 	}
 
