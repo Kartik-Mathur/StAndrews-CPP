@@ -24,7 +24,7 @@ void CheckPrime(int no){
 
 	return; // this means function will return back and it is not returning anything
 
-	cout<<"My World!";
+	cout<<"My World!"; // will not get printed, as it is after return 
 }
 
 void PrintPrimes(int n){
