@@ -29,7 +29,7 @@ int main(){
 	char a[100];
 	cin.getline(a,100);
 
-	if(isPallindrome(a) == true){
+	if(isPallindrome(a)){
 		cout<<"Pallindrome"<<endl;
 	}
 	else{
