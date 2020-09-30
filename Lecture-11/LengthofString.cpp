@@ -1,3 +1,4 @@
+// LengthofString
 #include <iostream>
 using namespace std;
 
@@ -13,12 +14,24 @@ void ReadString(char *ch,char delimiter='\n'){
 	ch[i] = '\0';	
 }
 
-int main(){
-	char ch[100];
+int length(char *a){
+	int count = 0; 
+	for(int i = 0 ; a[i] != '\0' ; i++){
+		count++;
+	}
 
-	ReadString(ch,'$');
-	// cin.getline(ch,100); // This will read a line till we don't get '\n', by default delimiter is '\n'
-	cout<<ch;
+	return count;
+}
+
+int main(){
+	
+	char ch[100];
+	// cin.getline(ch,100); // Input the string
+	ReadString(ch);
+	
+	cout<<length(ch);
+
+
 	cout<<endl;
 	return 0;
 }
