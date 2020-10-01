@@ -24,7 +24,7 @@ int main(){
 		i--;
 	}
 	cout<<a<<endl;
-
+	// 2. Bring the last n characters in front
 	i = 0;
 	int j = len;
 
@@ -33,7 +33,8 @@ int main(){
 		i++; j++;
 	}
 	cout<<a<<endl;
-
+	 
+	// Insert the NULL at the len position
 	a[len] = '\0';
 	cout<<a;
 
