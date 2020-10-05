@@ -21,7 +21,7 @@ int main(){
 		}
 		cout<<endl;
 	}
-	
+
 	// Wave Print
 	for(int col = 0 ; col < m ; col++){
 		// for even col, print row from 0 to n-1
@@ -36,9 +36,12 @@ int main(){
 				cout<<a[row][col]<<',';
 			}
 		}
-
 	}
 
 	cout<<endl;
 	return 0;
 }
+
+
+
+
