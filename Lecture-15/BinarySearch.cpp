@@ -1,5 +1,6 @@
 #include <iostream>
 using namespace std;
+// Learning Binary search
 
 int bsearch(int *a,int s,int e,int key){
 	if(s>e){
