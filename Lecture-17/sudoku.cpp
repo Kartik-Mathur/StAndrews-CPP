@@ -11,7 +11,7 @@ bool KyaSafeHai(int mat[][9],int i,int j,int n,int number){
 	}
 
 	// Check whether the number is present in block
-	n = sqrt(n);
+	n = sqrt(n); // n is 9 and it is converted to sqrt(9)==3
 	int starti = (i/n)*n;
 	int startj = (j/n)*n;
 	for(int k = starti ; k<starti+n ; k++){
