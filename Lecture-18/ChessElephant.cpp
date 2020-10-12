@@ -25,7 +25,7 @@ int main(){
 	int n,m;
 	cin>>n>>m;
 
-	cout<<Elephant(n,m);
+	cout<<Elephant(n,m);C
 
 	cout<<endl;
 	return 0;
