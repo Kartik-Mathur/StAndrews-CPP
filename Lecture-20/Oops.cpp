@@ -6,7 +6,7 @@ using namespace std;
 class Car{
 public:
 	int model;
-	char name[100];
+	char *name;
 	int price;
 
 	// Default Functions
@@ -16,11 +16,13 @@ public:
 		// By Default constructor looks like this
 	// }
 	Car(){ // Default Constructor
+		name = NULL;
 		cout<<"Inside Default Constructor"<<endl;
 	}
 	// Parameterized Constructor
 	Car(char *n,int p,int m){
 		cout<<"Inside Parameterized Constructor"<<endl;
+		name = new char[strlen(n)+1];
 		strcpy(name,n);
 		price = p;
 		model = m;
@@ -29,6 +31,7 @@ public:
 	// 2. Copy Constructor
 	Car(Car &X){
 		cout<<"In Copy Constructor"<<endl;
+		name = new char[strlen(X.name)+1];
 		strcpy(name,X.name);
 		model = X.model;
 		price = X.price;
@@ -36,6 +39,11 @@ public:
 
 	// 3. Copy Assignment Operator - Also called as operator overloading
 	void operator=(Car &X){
+		if(name != NULL){
+			delete []name;
+			name = NULL;
+		}
+		name = new char[strlen(X.name)+1];
 		strcpy(name,X.name);
 		price = X.price;
 		model = X.model;
@@ -44,6 +52,16 @@ public:
 	// 4. Destructor
 	~Car(){
 		cout<<"Inside Destructor "<<name<<endl;
+	}
+
+	// UpdateName
+	void UpdateName(char *n){
+		if(name != NULL){
+			delete []name;
+			name = NULL;
+		}
+		name = new char[strlen(n)+1];
+		strcpy(name,n);
 	}
 
 	void Print(){
@@ -65,26 +83,32 @@ int main(){
 	// A.name[1] = 'M';
 	// A.name[2] = 'W';
 	// A.name[3] = '\0';
-	strcpy(A.name,"BMW");
+	// strcpy(A.name,"BMW");
+	A.UpdateName("BMW");
 	A.Print();
 
 	B.model = 2017;
 	B.price = 500;
-	strcpy(B.name,"Maruti");
+	// strcpy(B.name,"Maruti");
+	B.UpdateName("Maruti");
 	B.Print();	
 
 	Car C("Audi",500,2020); // Object of class Car
 	// strcpy(C.name,"Audi");
 	// C.price = 500;
 	// C.model = 2020;
+	Car D = C;
+	Car E(D);
+
+	D.name[0] = 'B';
+
 	C.Print();
-
-	Car D = A;
 	D.Print();
-
-	Car E; // Default Constructor
-	E = B;
 	E.Print();
+
+	// Car E; // Default Constructor
+	// E = B;
+	// E.Print();
 
 	return 0;
 }
