@@ -25,12 +25,25 @@ public:
 		price = p;
 		model = m;
 	}
-	// Parameterized Constructor 2
-	Car(char *n,int p){
-		cout<<"Inside Parameterized Constructor 2"<<endl;
-		strcpy(name,n);
-		price = p;
-		model = 2020;
+
+	// 2. Copy Constructor
+	Car(Car &X){
+		cout<<"In Copy Constructor"<<endl;
+		strcpy(name,X.name);
+		model = X.model;
+		price = X.price;
+	}
+
+	// 3. Copy Assignment Operator - Also called as operator overloading
+	void operator=(Car &X){
+		strcpy(name,X.name);
+		price = X.price;
+		model = X.model;
+	}
+
+	// 4. Destructor
+	~Car(){
+		cout<<"Inside Destructor "<<name<<endl;
 	}
 
 	void Print(){
@@ -66,8 +79,12 @@ int main(){
 	// C.model = 2020;
 	C.Print();
 
-	Car D("Suzuki",300);
+	Car D = A;
 	D.Print();
+
+	Car E; // Default Constructor
+	E = B;
+	E.Print();
 
 	return 0;
 }
