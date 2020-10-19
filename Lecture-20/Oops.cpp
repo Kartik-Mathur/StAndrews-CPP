@@ -4,11 +4,11 @@ using namespace std;
 
 ///////////////////////////////// BLUEPRINT ///////////////////////////////////
 class Car{
+private:
+	int price; // Is only accessible inside the class
 public:
 	int model;
 	char *name;
-	int price;
-
 	// Default Functions
 	// 1. Constructor- Whenever an object gets created its done via constructor only
 	// This is used to create objects
@@ -64,6 +64,19 @@ public:
 		strcpy(name,n);
 	}
 
+	void SetPrice(int p){
+		if(p>500 && p<600){
+			price = p;
+		}
+		else{
+			price = 500;
+		}
+	}
+
+	int getPrice(){
+		return price;
+	}
+
 	void Print(){
 		cout<<"Name  : "<<name<<endl;
 		cout<<"Price : $"<<price<<endl;
@@ -77,7 +90,8 @@ int main(){
 	Car A; // Object of class Car
 	Car B; // Object of class Car
 	A.model = 2011;
-	A.price = 100;
+	// A.price = 100;
+	A.SetPrice(1000000);
 	// A.name = "BMW"; 
 	// A.name[0] = 'B';
 	// A.name[1] = 'M';
@@ -88,7 +102,10 @@ int main(){
 	A.Print();
 
 	B.model = 2017;
-	B.price = 500;
+	// B.price = 500;
+	B.SetPrice(500);
+	// cout<<B.price<<endl;
+	cout<<B.getPrice()<<endl;
 	// strcpy(B.name,"Maruti");
 	B.UpdateName("Maruti");
 	B.Print();	
