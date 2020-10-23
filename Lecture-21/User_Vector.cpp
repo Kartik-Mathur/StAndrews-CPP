@@ -51,7 +51,7 @@ int main(){
 	
 	Vector v;
 
-	for(int i = 0 ; i < 5 ; i++){
+	for(int i = 0 ; i < 10 ; i++){
 		v.push_back(i);
 	}
 
@@ -59,7 +59,15 @@ int main(){
 		cout<<v[i]<<' ';
 	}
 	cout<<endl;
+	
+	v.pop_back();
+	// v.pop_back();
+	// v.pop_back();
 
+	for(int i = 0 ; i < v.size() ; i++){
+		cout<<v[i]<<' ';
+	}
+	cout<<endl;
 	cout<<"Size : "<<v.size()<<endl;
 	cout<<"Capacity : "<<v.capacity()<<endl;
 
