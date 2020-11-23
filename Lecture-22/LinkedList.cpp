@@ -61,8 +61,10 @@ int main(){
 	InsertLLEnd(head,tail,3);
 	InsertLLEnd(head,tail,4);
 	PrintLL(head);
+
 	InsertLLStart(head,tail,5);
 	PrintLL(head);
+	
 	InsertLLStart(head,tail,6);
 	PrintLL(head);
 

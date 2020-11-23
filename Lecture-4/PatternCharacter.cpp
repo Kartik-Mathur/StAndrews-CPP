@@ -9,6 +9,7 @@ int main(){
 	for(row = 1 ; row<=n ;row++){
 		// increasing characters
 		char ch = 'A';
+		
 		for(j = 0 ; j<n-row+1;j++){
 			cout<<(char)(ch+j);
 		}
