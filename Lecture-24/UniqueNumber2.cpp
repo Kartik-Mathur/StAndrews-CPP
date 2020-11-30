@@ -8,7 +8,7 @@ int main(){
 	int n;
 	cin>>n;
 
-	int a[1000];
+	int a[100001];
 	int ans = 0;
 	for(int i = 0 ; i < n ; i++){
 		cin>>a[i];
@@ -34,7 +34,12 @@ int main(){
 	}
 
 	int no2 = ans1 ^ no1;
-	cout<<"Unique Numbers "<<no1<<" and "<<no2<<endl;
+	if(no1>no2){
+		cout<<no2<<" "<<no1<<endl;
+	}
+	else{
+		cout<<no1<<" "<<no2<<endl;
+	}
 
 
 

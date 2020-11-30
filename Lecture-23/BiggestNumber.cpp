@@ -31,8 +31,8 @@ int main(){
 				int digits_a = CountDigits(a);
 				int digits_b = CountDigits(b);
 
-				int no1 = a*pow(10,digits_b)+b;
-				int no2 = b*pow(10,digits_a)+a;
+				long long int no1 = a*pow(10,digits_b)+b;
+				long long int no2 = b*pow(10,digits_a)+a;
 				if(no1>no2){
 					swap(arr[j],arr[j+1]);
 				}
