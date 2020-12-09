@@ -2,23 +2,29 @@
 using namespace std;
 
 bool compare(string a,string b){
-	// if a>b return true
-	// else return false;
-	int i = 0,j = 0;
-	while(i<a.length() && j<b.length()){
-		if(a[i]>b[j]){
-			return true;
-		}
-		else if(a[i]<b[j]){
-			return false;
-		}
-		i++;
-		j++;
+	if(b.find(a) == 0){
+		return a.length()<b.length();
 	}
-	if(i == a.length()){
+	else if(a>b){
 		return true;
 	}
 	return false;
+
+	// int i = 0,j = 0;
+	// while(i<a.length() && j<b.length()){
+	// 	if(a[i]>b[j]){
+	// 		return true;
+	// 	}
+	// 	else if(a[i]<b[j]){
+	// 		return false;
+	// 	}
+	// 	i++;
+	// 	j++;
+	// }
+	// if(i == a.length()){
+	// 	return true;
+	// }
+	// return false;
 
 }
 
@@ -47,17 +53,5 @@ int main(){
 		cout<<a[i]<<endl;
 	}
 
-	// string s="bat";
-	// string s1="batman";
-
-	// if(s<s1){
-	// 	cout<<s<<" is smaller than "<<s1<<endl;
-	// }
-	// else{
-	// 	cout<<s1<<" is smaller than "<<s<<endl;
-	// }
-
-
-	// cout<<endl;
 	return 0;
 }
