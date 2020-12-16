@@ -3,7 +3,7 @@
 using namespace std;
 bool sol[100][100] = {0};
 
-bool RatInMaze(char maze[][10],int i,int j,int n,int m){
+bool RatInMaze(char maze[][100],int i,int j,int n,int m){
 	// base case
 	if(i == n-1 and j == m-1){
 		sol[i][j] = true;
@@ -19,7 +19,7 @@ bool RatInMaze(char maze[][10],int i,int j,int n,int m){
 			cout<<endl;
 		}
 		cout<<endl;
-		return false;
+		return true;
 	}
 
 
@@ -62,19 +62,28 @@ bool RatInMaze(char maze[][10],int i,int j,int n,int m){
 }
 
 int main(){
-	#ifndef ONLINE_JUDGE
-	freopen("input.txt","r",stdin);
-	freopen("output.txt","w",stdout);
-	#endif
+	// #ifndef ONLINE_JUDGE
+	// freopen("input.txt","r",stdin);
+	// freopen("output.txt","w",stdout);
+	// #endif
+	char maze[100][100];
+	int n,m;
+	cin>>n>>m;
+	for(int i = 0 ; i < n ; i++){
+		for(int j = 0 ; j < m ; j++){
+			cin>>maze[i][j];
+		}
+	}
+	// char maze[][10]={
+	// 	"0000",
+	// 	"00XX",
+	// 	"0000",
+	// 	"XX00"
+	// };
 
-	char maze[][10]={
-		"0000",
-		"00XX",
-		"0000",
-		"XX00"
-	};
-
-	RatInMaze(maze,0,0,4,4);
+	if(!RatInMaze(maze,0,0,n,m)){
+		cout<<"NO PATH FOUND";
+	}
 
 	return 0;
 }
