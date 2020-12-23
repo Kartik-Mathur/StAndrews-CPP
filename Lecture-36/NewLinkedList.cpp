@@ -155,27 +155,34 @@ void CreateCycle(node* head){
 
 int main(){
 	
-	#ifndef ONLINE_JUDGE
-	freopen("input.txt","r",stdin);
-	freopen("output.txt","w",stdout);
-	#endif
+	// #ifndef ONLINE_JUDGE
+	// freopen("input.txt","r",stdin);
+	// freopen("output.txt","w",stdout);
+	// #endif
 
 	node* head=NULL;
+	int n;
+	cin>>n;
 
-	InsertLLEnd(head,9);
-	InsertLLEnd(head,8);
-	InsertLLEnd(head,7);
-	InsertLLEnd(head,6);
-	InsertLLEnd(head,5);
-	InsertLLEnd(head,4);
-	InsertLLEnd(head,3);
-	InsertLLEnd(head,2);
-	InsertLLEnd(head,1);
-	PrintLL(head);
-	BubbleSortLL(head);
-	PrintLL(head);
-	CreateCycle(head);
+	for(int i = 0 ; i < n ; i++){
+		int a; 
+		cin>>a;
+		InsertLLEnd(head,a);
+	}
+	// InsertLLEnd(head,9);
+	// InsertLLEnd(head,8);
+	// InsertLLEnd(head,7);
+	// InsertLLEnd(head,6);
+	// InsertLLEnd(head,5);
+	// InsertLLEnd(head,4);
+	// InsertLLEnd(head,3);
+	// InsertLLEnd(head,2);
+	// InsertLLEnd(head,1);
 	// PrintLL(head);
+	// BubbleSortLL(head);
+	// PrintLL(head);
+	// CreateCycle(head);
+	// // PrintLL(head);
 
 	if(isCyclic(head)){
 		cout<<"Yes Cyclic"<<endl;
