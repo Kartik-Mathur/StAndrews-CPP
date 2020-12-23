@@ -71,127 +71,58 @@ void InsertLLEnd(node* &head,int d){
 	}
 }
 
-void BubbleSortLL(node* &head){
-	node* prev = NULL,*c=head,*n;
-	int n1 = length(head);
-
-	for(int i = 0 ; i < n1-1 ; i++){
-		c = head,prev=NULL;
-		while(c!=NULL && c->next!=NULL){
-			n = c->next;
-			if(c->data>n->data){
-			// swapping takes place	
-				if(prev == NULL){
-				// 1. head is swapped
-					c->next = n->next;
-					n->next = c;
-					head=prev=n;
-				}
-				else{
-				// 2. head is not swapped
-					prev->next = c->next;
-					c->next = n->next;
-					n->next = c;
-					prev = n;
-				}
-			}
-			else{
-			// no swapping takes place
-				prev=c;
-				c=c->next;
-			}
-		}
+node* mergeLL(node* a, node* b){
+	// base case
+	if(a == NULL){
+		return b; // b is list return b, 
+		// if b is null return b only
+	}
+	if(b == NULL){
+		return a;
 	}
 
+	// recursive case
+	node* newHead;
+	if(a->data<b->data){
+		newHead = a;
+		newHead->next = mergeLL(a->next,b);
+	}
+	else{
+		newHead = b;
+		newHead->next = mergeLL(a,b->next);
+	}
+	return newHead;
 }
 
-bool isCyclic(node* head){
-	node* f = head, *s = head;
+node* mergeSort(node* head){
+	// base case
+	if(head == NULL || head->next == NULL){
+		return head;
+	}
+	// recursive case
+	node* m = mid(head);
+	node* head1 = m->next;
+	m->next = NULL;
+	// we have two ll, first is head and 
+	// second is head1
+	head = mergeSort(head);
+	head1 = mergeSort(head1);
 
-	while(f && f->next){
-		f=f->next->next;
-		s=s->next;
-		if(f == s){
-			return true;
-		}
-	}
-	return false;
-}
-
-void breakCycle(node* head){
-	if(!isCyclic(head)){
-		return;
-	}
-	node* f = head, *s = head;
-
-	while(f && f->next){
-		f=f->next->next;
-		s=s->next;
-		if(f == s){
-			break;
-		}
-	}
-
-	s = head;
-	node* prev = head;
-	while(prev->next!=f){
-		prev=prev->next;
-	}
-	while(f!=s){
-		prev=f;
-		f=f->next;
-		s=s->next;
-	}
-	prev->next=NULL;
-}
-
-void CreateCycle(node* head){
-	node* temp = head;
-	while(temp->next){
-		temp=temp->next;
-	}
-	temp->next = head->next->next;
+	// merge the sorted list
+	node* newHead = mergeLL(head,head1);
+	return newHead;
 }
 
 int main(){
-	
-	// #ifndef ONLINE_JUDGE
-	// freopen("input.txt","r",stdin);
-	// freopen("output.txt","w",stdout);
-	// #endif
-
 	node* head=NULL;
-	int n;
-	cin>>n;
-
+	int a[]={1,4,6,3,6,6,6,7,8,0};
+	int n = sizeof(a)/sizeof(int);
 	for(int i = 0 ; i < n ; i++){
-		int a; 
-		cin>>a;
-		InsertLLEnd(head,a);
-	}
-	// InsertLLEnd(head,9);
-	// InsertLLEnd(head,8);
-	// InsertLLEnd(head,7);
-	// InsertLLEnd(head,6);
-	// InsertLLEnd(head,5);
-	// InsertLLEnd(head,4);
-	// InsertLLEnd(head,3);
-	// InsertLLEnd(head,2);
-	// InsertLLEnd(head,1);
-	// PrintLL(head);
-	// BubbleSortLL(head);
-	// PrintLL(head);
-	// CreateCycle(head);
-	// // PrintLL(head);
-
-	if(isCyclic(head)){
-		cout<<"Yes Cyclic"<<endl;
-		breakCycle(head);
-	}
-	else{
-		cout<<"Not Cyclic"<<endl;
+		InsertLLEnd(head,a[i]);
 	}
 	PrintLL(head);
-	cout<<endl;
+	head = mergeSort(head);
+	PrintLL(head);
+
 	return 0;
 }

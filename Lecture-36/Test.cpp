@@ -20,19 +20,33 @@ int main(){
 	// int n,no;
 	// cout<<"Enter Number of elements ";
 	// cin>>n;
-	int a[]={1,4,6,3,6,6,6,7,8,0};
+	int a[]={2,4,6,8,10,11,12};
 	int n = sizeof(a)/sizeof(int);
-	list<int> l(a,a+n); // Initialization of LinkedList
+	list<int> l1(a,a+n); // Initialization of LinkedList
+
+	int b[]={1,3,5,7,8,9,121};
+	int m = sizeof(a)/sizeof(int);
+	list<int> l2(b,b+m); // Initialization of LinkedList
+	// Iteration over LinkedList using for each loop
+	for(auto node: l1){ // for every node that belongs to l1
+		cout<<node<<"-->";
+	}
+	cout<<endl;
 	// for(int i = 0 ; i < n ; i++){
 	// 	// cin>>no;
 	// 	l.push_front(a[i]); // Insertion at front
 	// 	// l.push_back(no); // Insertion at end
 	// }
 	// list<int>::iterator --> auto
-	PrintLL(l);
+	PrintLL(l1);
+	PrintLL(l2);
+	l1.sort();
+	l2.sort();
+	l1.merge(l2); // will merge two sorted lists
+	PrintLL(l1);
 	// Insert in middle 
-	int pos,val;
-	list<int>::iterator it = l.begin();
+	// int pos,val;
+	// list<int>::iterator it = l1.begin();
 	// cout<<"Enter the pos & val ";
 	// cin>>pos>>val;
 	// for(int i = 1 ; i < pos ; i++){
@@ -58,11 +72,11 @@ int main(){
 	// cin>>key;
 	// l.remove(key);
 	// PrintLL(l);
-	l.unique();
-	PrintLL(l);
-	l.sort(compare);
-	cout<<"Sorted List : ";
-	PrintLL(l);
+	// l.unique();
+	// PrintLL(l);
+	// l.sort(compare);
+	// cout<<"Sorted List : ";
+	// PrintLL(l);
 	// l.reverse();
 	// cout<<"Dec Sorted List : ";PrintLL(l);
 
