@@ -1,4 +1,4 @@
-Before Reversing : 
-10-->20-->30-->40-->50-->NULL
-After Reversing : 
-50-->40-->30-->20-->10-->NULL
+Before Sorting : 
+1-->2-->2-->1-->0-->0-->1-->0-->1-->NULL
+After Sorting : 
+0-->0-->0-->1-->1-->1-->1-->2-->2-->NULL
