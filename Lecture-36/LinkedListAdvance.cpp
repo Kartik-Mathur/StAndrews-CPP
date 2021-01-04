@@ -34,7 +34,6 @@ int main(){
 	l.push_back(f);
 	l.push_back({"Orange","Orange",85});
 	l.push_back({"Guava","Green",56});
-
 	for(auto node:l){// every node is an object-Fruits
 		cout<<"Name : "<<node.name<<", ";
 		cout<<"Color: "<<node.color<<", ";
@@ -45,7 +44,9 @@ int main(){
 	for(int i = 0 ; i < n ; i++){
 		char n[100],c[100];int s;
 		cin>>n>>c>>s;
-		l.push_back({n,c,s});
+		// l.push_back({n,c,s});
+		Fruits f(n,c,s);
+		l.push_back(f);
 	}
 
 	for(auto node:l){// every node is an object-Fruits
@@ -53,15 +54,6 @@ int main(){
 		cout<<"Color: "<<node.color<<", ";
 		cout<<"sweetness : "<<node.sweetness<<endl;
 	}
-
-
-
-
-
-
-
-
-
 
 
 	return 0;
