@@ -127,7 +127,6 @@ void SortList1Helper(node* &temp,node* &tempd,node* &head){
 
 void SortList1(node* &head){
 	node *z=NULL,*o=NULL,*t=NULL,*zd=NULL,*od=NULL,*td=NULL;
-
 	
 	while(head){
 		if(head->data == 0){
