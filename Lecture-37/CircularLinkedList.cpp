@@ -1,4 +1,4 @@
-// SortList
+// Circular List
 #include <iostream>
 using namespace std;
 //////// BLUEPRINT /////////////////////////
@@ -102,45 +102,67 @@ void PrintLL(node* head){
 	
 }
 
+void InsertLLEnd1(node* &head,int d){
+	if(head == NULL){
+		// First Node is getting inserted
+		node* n = new node(d);
+		head = n;
+	}
+	else{
+		node* n = new node(d);
+		node* temp = head;
+		while(temp->next){
+			temp = temp->next;
+		}
+		temp->next = n;
+	}
+}
 
+// int main(){
+// 	#ifndef ONLINE_JUDGE
+// 	freopen("input.txt","r",stdin);
+// 	freopen("output.txt","w",stdout);
+// 	#endif
+
+// 	node* head=NULL;
+
+// 	int data;
+// 	cin>>data;
+// 	while(data!=-1){
+// 		if(InsertLLEnd(head,data) == true){
+// 			cout<<"Cycle is Present"<<endl;
+// 			breakCycle(head);
+// 			break;
+// 		}
+// 		cin>>data;
+// 	}
+// 	PrintLL(head);
+
+// 	return 0;
+// }
+
+//  Second way of doing it, that works
 int main(){
 	#ifndef ONLINE_JUDGE
 	freopen("input.txt","r",stdin);
 	freopen("output.txt","w",stdout);
-	#endif
+	#endif	
+	int freq[100005] = {0};
 
-	node* head=NULL;
-
-	int data;
-	cin>>data;
-	while(data!=-1){
-		if(InsertLLEnd(head,data) == true){
-			cout<<"Cycle is Present"<<endl;
-			breakCycle(head);
+	int n;
+	cin>>n;
+	node* head = NULL;
+	while(n!=-1){
+		if(freq[n] != 0){
 			break;
 		}
-		cin>>data;
+		InsertLLEnd1(head,n);
+		// cout<<n<<' ';
+		freq[n]++;
+		cin>>n;
 	}
-	PrintLL(head);
 
+	PrintLL(head);
+	
 	return 0;
 }
-
-//  Second way of doing it, that works
-// int main(){
-// 	int freq[100005] = {0};
-
-// 	int n;
-// 	cin>>n;
-// 	while(n!=-1){
-// 		if(freq[n] != 0){
-// 			break;
-// 		}
-// 		cout<<n<<' ';
-// 		freq[n]++;
-// 	}
-
-
-// 	cout<<endl;
-// 	return 0;
-// }
