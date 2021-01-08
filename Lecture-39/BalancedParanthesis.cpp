@@ -5,10 +5,8 @@ using namespace std;
 
 bool isBalanced(char *a){
 	stack<char> s;
-
 	for(int i = 0 ; a[i] ; i++){
 		char ch = a[i];
-
 		switch(ch){
 			case '(' :
 			case '{' :
@@ -33,9 +31,7 @@ bool isBalanced(char *a){
 						s.pop();
 		}
 	}
-
 	return s.size() == 0;
-
 }
 
 int main(){
