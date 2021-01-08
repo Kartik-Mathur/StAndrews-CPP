@@ -86,7 +86,7 @@ void ReverseLL(node* &cs, node* &ce, node* &head,node* p){
 	}
 	swap(cs,ce);
 	// temp = cs;
-	// while(temp){
+	// while(temp){ 
 	// 	cout<<temp->data<<"-->";
 	// 	temp = temp->next;
 	// }
