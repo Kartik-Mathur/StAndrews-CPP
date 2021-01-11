@@ -65,18 +65,6 @@ int main() {
 	q.push(6);
 	q.push(7);
 
-	q.pop();
-	q.pop();
-	q.pop();
-	q.push(8);
-	q.push(9);
-	q.push(10);
-	q.pop();
-	q.pop();
-	q.pop();
-	q.push(11);
-	q.push(12);
-	q.push(13);
 	while (!q.empty()) {
 		cout << q.front() << " ";
 		q.pop();
